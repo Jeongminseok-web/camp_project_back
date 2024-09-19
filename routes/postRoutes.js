@@ -22,12 +22,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({
-  storage,
-  limits: {
-    fileSize: 1024 * 1024, // 1MB
-  },
-});
+const upload = multer({ storage });
 
 // upload.array("images", 5),
 router.post("/post_areas", postAreas);
