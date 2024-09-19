@@ -17,12 +17,17 @@ const storage = multer.diskStorage({
     const index = (req.fileIndex || 0) + 1; // 순서를 매기기 위해 인덱스 사용
     req.fileIndex = index; // 인덱스 업데이트
     const uniqueId = uuidv4();
-    const newFileName = `${userName}_image${uniqueId}${ext}`; // 'image1.png', 'image2.png' 형식으로 이름 지정
+    const newFileName = `${userName}_image${uniqueId}${ext}`; // 이름 지정
     cb(null, newFileName);
   },
 });
 
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 1024 * 1024, // 1MB
+  },
+});
 
 // upload.array("images", 5),
 router.post("/post_areas", postAreas);
