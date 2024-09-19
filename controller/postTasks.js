@@ -4,7 +4,7 @@ const { v4: uuid } = require("uuid");
 exports.postTasks = async (req, res) => {
   const _id = uuid(); // UUID 생성
   const files = req.files;
-  console.log(files);
+  // console.log(files);
 
   if (!files || files.length === 0) {
     return res.status(400).json({ error: "No files uploaded" });
