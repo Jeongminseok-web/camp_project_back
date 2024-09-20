@@ -15,6 +15,7 @@ exports.postTasks = async (req, res) => {
   const { title, description, date, grade, userId, userName } = req.body; // content -> description으로 변경
 
   // const images = files.map((file) => file.path);
+  // +uploads
 
   try {
     console.log(files);
